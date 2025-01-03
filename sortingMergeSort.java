@@ -3,7 +3,7 @@ package SEARCHINGandSORTING;
 import java.util.Scanner;
 
 public class sortingMergeSort {
-    public static void mergeSort(int array[], int startingIndex, int endingIndex){
+    public static void mergeSorting(int array[], int startingIndex, int endingIndex){
         int middleIndex = startingIndex + (endingIndex-startingIndex)/2;
         if(startingIndex >= endingIndex){
             return;
@@ -51,7 +51,7 @@ public class sortingMergeSort {
             for (int i = 0; i < sampleArray.length; i++) {
                 System.out.print(sampleArray[i] + " ");
             }
-            mergeSort(sampleArray, 0, sampleArray.length-1);
+            mergeSorting(sampleArray, 0, sampleArray.length-1);
             System.out.print("The array after performing merge sort is: ");
             for (int i = 0; i < sampleArray.length; i++) {
                 System.out.print(sampleArray[i] + " ");
