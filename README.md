@@ -1,0 +1,1 @@
+This repository contains implementations of fundamental searching and sorting algorithms in Java. It serves as a comprehensive reference for understanding algorithmic concepts, improving coding skills, and optimizing performance in data structures and problem-solving applications. Suitable for students and developers.
