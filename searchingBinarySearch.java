@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class searchingBinarySearch {
     public static int binarySearch(int array[], int key) {
         int startingIndex = 0;
-            int endingIndex = array.length - 1;
-        while (startingIndex<=endingIndex) {
+        int endingIndex = array.length - 1;
+        while (startingIndex <= endingIndex) {
             int middleIndex = startingIndex + (endingIndex - startingIndex) / 2;
 
             if (array[middleIndex] == key) {
