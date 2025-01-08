@@ -14,6 +14,7 @@ public class sortingInsertionSort {
             array[previous+1] = current;
         }
     }
+    
     public static void insertionSortD(int array[]){
         for(int i=1;i<array.length;i++){
             int current = array[i];

@@ -10,14 +10,9 @@ public class sortingCountingSort {
                 maximumElement = array[i];
             }
         }
-        System.out.println("Maximum element present in the given array is: " + maximumElement);
         int countArray[] =new int[maximumElement+1];
         for(int i=0;i<array.length;i++){
             countArray[array[i]]++;
-        }
-        System.out.print("Array containing the frequency is: ");
-        for(int i=0;i<countArray.length;i++){
-            System.out.print(countArray[i] + " ");
         }
         int j=0;
         for(int i=0;i<countArray.length;i++){

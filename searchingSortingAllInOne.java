@@ -35,6 +35,7 @@ public class searchingSortingAllInOne {
         }
         return -1;
     }
+
     // BUBBLE SORT => BEST_CASE O(N), AVERAGE_CASE O(N^2), WORST_CASE O(N^2)
     public static void bubbleSortA(int array[]) {
         for (int i = 0; i < array.length - 1; i++) {
@@ -60,11 +61,12 @@ public class searchingSortingAllInOne {
         }
     }
 
-    public static void selectionSortA(int array[]){
-        for(int i=0;i<array.length-1;i++){
+    // SELECTION SORT => BEST_CASE O(N), AVERAGE_CASE O(N^2), WORST_CASE O(N^2)
+    public static void selectionSortA(int array[]) {
+        for (int i = 0; i < array.length - 1; i++) {
             int minPos = i;
-            for(int j=i+1;i<array.length;j++){
-                if(array[minPos] > array[j]){
+            for (int j = i + 1; i < array.length; j++) {
+                if (array[minPos] > array[j]) {
                     minPos = j;
                 }
             }
@@ -74,11 +76,11 @@ public class searchingSortingAllInOne {
         }
     }
 
-    public static void selectionSortD(int array[]){
-        for(int i=0;i<array.length-1;i++){
+    public static void selectionSortD(int array[]) {
+        for (int i = 0; i < array.length - 1; i++) {
             int minPos = i;
-            for(int j=i+1;i<array.length;j++){
-                if(array[minPos] < array[j]){
+            for (int j = i + 1; i < array.length; j++) {
+                if (array[minPos] < array[j]) {
                     minPos = j;
                 }
             }
@@ -87,6 +89,74 @@ public class searchingSortingAllInOne {
             array[i] = temp;
         }
     }
+
+    public static void insertionSortA(int array[]) {
+        for (int i = 1; i < array.length; i++) {
+            int current = array[i];
+            int previous = i - 1;
+            while (previous >= 0 && array[previous] > current) {
+                array[previous + 1] = array[previous];
+                previous--;
+            }
+            array[previous + 1] = current;
+        }
+    }
+
+    public static void insertionSortD(int array[]) {
+        for (int i = 1; i < array.length; i++) {
+            int current = array[i];
+            int previous = i - 1;
+            while (previous >= 0 && array[previous] < current) {
+                array[previous + 1] = array[previous];
+                previous--;
+            }
+            array[previous + 1] = current;
+        }
+    }
+
+    // COUNTING SORT => BEST_CASE O(N+R), AVERAGE_CASE O(N+R), WORST_CASE O(N+R)
+    public static void countingSortA(int array[]) {
+        int maxElement = Integer.MIN_VALUE;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > maxElement) {
+                maxElement = array[i];
+            }
+        }
+        int frequencyArray[] = new int[maxElement + 1];
+        for (int i = 0; i < array.length; i++) {
+            frequencyArray[array[i]]++;
+        }
+        int j = 0;
+        for (int i = 0; i < frequencyArray.length; i++) {
+            while (frequencyArray[i] > 0) {
+                array[j] = i;
+                j++;
+                frequencyArray[i]--;
+            }
+        }
+    }
+
+    public static void countingSortD(int array[]) {
+        int maxElement = Integer.MIN_VALUE;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > maxElement) {
+                maxElement = array[i];
+            }
+        }
+        int frequencyArray[] = new int[maxElement + 1];
+        for (int i = 0; i < array.length; i++) {
+            frequencyArray[array[i]]++;
+        }
+        int j = 0;
+        for (int i = frequencyArray.length - 1; i > 0; i--) {
+            while (frequencyArray[i] > 0) {
+                array[j] = i;
+                j++;
+                frequencyArray[i]--;
+            }
+        }
+    }
+
     public static void main(String args[]) {
         try (Scanner sc = new Scanner(System.in)) {
             System.out.print("Enter the number of elements you want to have in array: ");
@@ -137,7 +207,7 @@ public class searchingSortingAllInOne {
                         System.out.print("Array after sorting is: ");
                         printArray(sampleArray);
                     } else if (enteredChoiceFinal == 2) {
-                        // insertionSortA(sampleArray);
+                        insertionSortA(sampleArray);
                         System.out.print("Array after sorting is: ");
                         printArray(sampleArray);
                     } else if (enteredChoiceFinal == 3) {
@@ -145,7 +215,7 @@ public class searchingSortingAllInOne {
                         System.out.print("Array after sorting is: ");
                         printArray(sampleArray);
                     } else if (enteredChoiceFinal == 4) {
-                        // countingSortA(sampleArray);
+                        countingSortA(sampleArray);
                         System.out.print("Array after sorting is: ");
                         printArray(sampleArray);
                     } else {
@@ -157,7 +227,7 @@ public class searchingSortingAllInOne {
                         System.out.print("Array after sorting is: ");
                         printArray(sampleArray);
                     } else if (enteredChoiceFinal == 2) {
-                        // insertionSortD(sampleArray);
+                        insertionSortD(sampleArray);
                         System.out.print("Array after sorting is: ");
                         printArray(sampleArray);
                     } else if (enteredChoiceFinal == 3) {
@@ -165,7 +235,7 @@ public class searchingSortingAllInOne {
                         System.out.print("Array after sorting is: ");
                         printArray(sampleArray);
                     } else if (enteredChoiceFinal == 4) {
-                        // countingSortD(sampleArray);
+                        countingSortD(sampleArray);
                         System.out.print("Array after sorting is: ");
                         printArray(sampleArray);
                     } else {
